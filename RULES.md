@@ -13,6 +13,8 @@ third-party code is only an algorithm cross-check.
 | W | [Wanin: 麻將之星規則](https://mahjongstar.waningames.com/Games/Game_Rule) | Independent primary rules: documents alternative flower-set, pinfu, passing and claim policies. Not the selected preset. |
 | G | [Gametower: 台數計算](https://www.gametower.com.tw/Games/Freeplay/MJ/Star31/Data/count.aspx) | Primary comparison; distinct 13/16-tile sections must not be mixed. |
 | A | [PTT backup of atawmj.org.tw/mjking.htm](https://www.pttweb.cc/bbs/heart/M.1710649783.A.8F3) | Secondary association-page transcription only; original association page could not be verified. Not adopted. |
+| H | [2004 Taiwanese mahjong discussion](https://groups.google.com/g/tw.bbs.rec.mj/c/VOefaRnFPPQ) | Historical personal compilation of optional eight-and-a-half pairs; not a current rule authority. |
+| T | [2004 NTU mahjong tournament post](https://www.ptt.cc/bbs/NTU-MJ/M.1096995006.A.50A.html) | Event-specific optional form and value; not evidence for P or S. |
 
 An association or competition title alone is insufficient: some Taiwanese
 tournament documents govern MCR, not Taiwanese sixteen-tile play. P is selected
@@ -84,6 +86,36 @@ they are not presented as additional published rules.
 * Seven-versus-one on an opponent's flower requires the host to certify that
   external flower; no invented ordinary winning tile is supplied. Replacement
   events require a completed replacement, including when the ordinary hand loses.
+  `EIGHT_AFTER_INITIAL_REPLACEMENT` / `SEVEN_AFTER_INITIAL_REPLACEMENT` distinguish
+  a nondealer's completed initial sixteen-tile hand: they accept no `ReplacementWin`
+  and award no ordinary hand score. The host certifies completion and timing;
+  the library does not decide opening procedure or invent a seventeenth tile.
+
+## Special structural forms: evidence and admission
+
+Rechecked H and T rather than transplanting seven pairs or thirteen orphans.
+Their optional 八對半 / 嚦咕嚦咕 means **seven pairs and one triplet**, seventeen
+tiles, not an ordinary sixteen-tile eight-pair hand. H lists eight tai and allows
+four identical tiles to supply two pairs; T's event lists six tai and excludes
+the ordinary concealed award. Combination rules and values differ. These sources
+establish a historical optional form, not its inclusion in P or a complete
+southern profile. Neither selected preset lists it, so no detector or award is
+enabled. A nonstandard seven-pair-plus-triplet example is explicitly rejected;
+a hand that independently has five melds and a pair can still win normally.
+Eight ordinary pairs alone have only sixteen tiles and are not silently accepted
+as a completed seventeen-tile hand. Original association rules remain unverified.
+
+## Scoring audit coverage
+
+`PatternRegressionTest` provides a positive witness for every `Pattern`, checking
+source and unit values. Focused assertions cover exact award sets, dragon/honor
+and concealed-tier exclusions, independent seat/round winds, opening/ready facts,
+open five-meld hands, concealed kongs, ron versus self-draw triplets, alternative
+decompositions, raw-score tie-breaking after cap, and pinfu/replacement policies.
+The original scoring tests additionally cover flower-set replacement, southern
+cap and disabled flowers, opponent-triggered flowers, invalid contexts and a
+single aggregate flower/ordinary cap. Opening event timing, passing and payment
+remain host responsibilities, not facts reconstructed from a hand.
 
 ## Southern composition and custom rules
 

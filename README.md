@@ -44,6 +44,8 @@ for four-meld remainders, not a scoring source or production dependency.
 * `flowerWin`: eight flowers or seven-versus-one, without requiring an ordinary
   winning shape. Replacement-triggered events require a `ReplacementWin` with
   validated 16+1 tile input. An opponent's eighth flower requires no replacement.
+  Explicit initial-replacement events accept no seventeenth tile and return only
+  the flower award; the host certifies the nondealer's completed initial replacement.
   The flower award and optional replacement hand score remain separate, because
   their payers can differ. `rawTai` sums raw components and `tai` caps that sum
   once; this is not an allocation between payers. The host certifies the event
@@ -64,7 +66,9 @@ map, source map and acyclic exclusion graph, plus the few documented semantic
 policies. Scoring never branches on the profile name.
 
 Supported special wins are flower wins. Seven pairs, thirteen orphans and
-eight-and-a-half pairs are not silently imported from other variants.
+eight-and-a-half pairs are not silently imported from other variants. The historical
+optional seven-pair-plus-triplet form and conflicting values are recorded in RULES.md;
+neither selected profile adopts it.
 Opening wins and ready declarations are scoring facts certified by the host.
 Dealer/continuation tai and base-plus-tai transfers are outside hand scoring.
 

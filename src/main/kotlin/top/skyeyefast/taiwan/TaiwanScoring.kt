@@ -102,9 +102,10 @@ object TaiwanScoring {
         flowers: Set<Flower>, event: FlowerEvent, profile: TaiwanScoringProfile, replacement: ReplacementWin? = null,
     ): FlowerScore? {
         require(profile.flowers != FlowerPolicy.NONE) { "This profile has no flowers" }
-        val pattern = if (event == FlowerEvent.EIGHT_AFTER_REPLACEMENT) Pattern.EIGHT_FLOWERS else Pattern.SEVEN_ROBS_ONE
+        val pattern = if (event == FlowerEvent.EIGHT_AFTER_REPLACEMENT || event == FlowerEvent.EIGHT_AFTER_INITIAL_REPLACEMENT) Pattern.EIGHT_FLOWERS else Pattern.SEVEN_ROBS_ONE
         require(flowers.size == if (pattern == Pattern.EIGHT_FLOWERS) 8 else 7)
-        require((replacement != null) == (event != FlowerEvent.SEVEN_ON_OPPONENT_FLOWER))
+        val needsReplacementHand = event == FlowerEvent.EIGHT_AFTER_REPLACEMENT || event == FlowerEvent.SEVEN_AFTER_REPLACEMENT
+        require((replacement != null) == needsReplacementHand)
         if (replacement != null) require(replacement.context.flowers == flowers)
         val value = profile.values.getValue(pattern)
         if (value == 0) return null

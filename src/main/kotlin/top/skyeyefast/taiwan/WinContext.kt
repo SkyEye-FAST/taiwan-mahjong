@@ -49,7 +49,10 @@ class TaiwanScore(
     val awards: List<TaiAward> = java.util.List.copyOf(awards)
 }
 
-enum class FlowerEvent { EIGHT_AFTER_REPLACEMENT, SEVEN_AFTER_REPLACEMENT, SEVEN_ON_OPPONENT_FLOWER }
+enum class FlowerEvent {
+    EIGHT_AFTER_REPLACEMENT, SEVEN_AFTER_REPLACEMENT, SEVEN_ON_OPPONENT_FLOWER,
+    EIGHT_AFTER_INITIAL_REPLACEMENT, SEVEN_AFTER_INITIAL_REPLACEMENT
+}
 class ReplacementWin(val hand: Hand, val winningKind: Int, val context: WinContext) {
     init {
         hand.requireSize(16)
