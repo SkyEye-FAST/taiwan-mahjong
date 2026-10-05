@@ -5,9 +5,9 @@ and tai scoring. It contains no Minecraft types, match state machine, networking
 persistence, UI, dealer progression or payment execution.
 
 Source: [SkyEye-FAST/taiwan-mahjong](https://github.com/SkyEye-FAST/taiwan-mahjong).
-Maven coordinate: `top.skyeyefast:taiwan-mahjong:0.1.0-SNAPSHOT`; artifacts have
-not been published to Maven Central. MChjong pins this repository as a Git
-submodule and consumes it through Gradle composite dependency substitution.
+Maven coordinate: `top.skyeyefast:taiwan-mahjong:0.1.0`.
+MChjong can pin this repository as a Git submodule for composite source development;
+the published library resolves independently from its Maven coordinate.
 This repository builds independently:
 
 ```sh
@@ -19,6 +19,21 @@ cd taiwan-mahjong
 Build with JDK 21; production bytecode and JDK API usage target Java 17.
 Runtime dependency: Kotlin standard library. `mcr-mahjong` is a test-only oracle
 for four-meld remainders, not a scoring source or production dependency.
+
+## Dependency
+
+```kotlin
+repositories { mavenCentral() }
+dependencies { implementation("top.skyeyefast:taiwan-mahjong:0.1.0") }
+```
+
+The public API is the Kotlin-public declarations in `top.skyeyefast.taiwan`,
+including JVM static analysis/scoring entry points and the two profile fields.
+`internal` count validation, Hand helpers and distance DP are implementation details;
+the checked-in `api/` ABI dump records the release boundary. RULES.md is the
+0.1.0 semantic baseline. Review intentional API changes before `updateKotlinAbi`.
+
+Sources and generated Dokka HTML ship in standard `sources` and `javadoc` JARs.
 
 ## Contracts
 
@@ -80,5 +95,35 @@ source-backed scoring examples, exclusions, custom policies, southern capping,
 and flower-trigger boundaries. Seeded legal five-meld hands cross-check the
 independent decomposition and target-distance algorithms. Seeded four-meld
 remainders compare with `mcr-mahjong:0.1.0` regular-form analysis.
+
+Local release verification:
+
+```sh
+./gradlew build publishToMavenLocal verifyPublication --warning-mode fail
+./gradlew -p consumers clean verify --warning-mode fail
+```
+
+See [consumer verification](consumers/README.md). `build` also checks the public
+ABI, JVM 17 class versions, Apache-2.0 license, sources/docs and POM/module metadata.
+The only published dependency is Kotlin stdlib in API/compile and runtime scopes.
+
+## Publishing
+
+Set `CENTRAL_PORTAL_USERNAME`, `CENTRAL_PORTAL_PASSWORD`,
+`MAVEN_CENTRAL_SIGNING_KEY` (ASCII-armored OpenPGP private key) and
+`MAVEN_CENTRAL_SIGNING_PASSWORD` in protected environment variables, or their
+Gradle property equivalents `centralPortalUsername`, `centralPortalPassword`,
+`signingKey`, `signingPassword`. Never commit credentials.
+
+After local verification, run:
+
+```sh
+./gradlew publishAggregationToCentralPortal --warning-mode fail
+```
+
+This signs the Maven publication and uploads a USER_MANAGED deployment; inspect
+validation and publish that deployment in Central Portal. The POM carries this
+project's developer, SCM and Apache-2.0 license only.
+Release notes are in [CHANGELOG.md](CHANGELOG.md).
 
 License: Apache-2.0; see [LICENSE](LICENSE).

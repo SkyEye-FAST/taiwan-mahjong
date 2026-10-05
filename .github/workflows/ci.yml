@@ -22,6 +22,12 @@ jobs:
           cache-provider: basic
       - name: Build and test
         run: bash gradlew build --warning-mode fail --no-daemon --max-workers=2
+      - name: Publish to Maven Local
+        run: bash gradlew publishToMavenLocal --warning-mode fail --no-daemon --max-workers=2
+      - name: Verify publication metadata
+        run: bash gradlew verifyPublication --warning-mode fail --no-daemon --max-workers=2
+      - name: Verify Java and Kotlin consumers
+        run: bash gradlew -p consumers clean verify --warning-mode fail --no-daemon --max-workers=2
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v7
@@ -34,6 +40,6 @@ jobs:
       - name: Upload library artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: taiwan-mahjong-snapshot
+          name: taiwan-mahjong-library
           path: build/libs/*.jar
           if-no-files-found: error

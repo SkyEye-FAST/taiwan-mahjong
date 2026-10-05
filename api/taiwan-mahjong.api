@@ -1,0 +1,321 @@
+public final class top/skyeyefast/taiwan/DiscardAnalysis {
+	public fun <init> (ILtop/skyeyefast/taiwan/HandAnalysis;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ltop/skyeyefast/taiwan/HandAnalysis;
+	public final fun copy (ILtop/skyeyefast/taiwan/HandAnalysis;)Ltop/skyeyefast/taiwan/DiscardAnalysis;
+	public static synthetic fun copy$default (Ltop/skyeyefast/taiwan/DiscardAnalysis;ILtop/skyeyefast/taiwan/HandAnalysis;ILjava/lang/Object;)Ltop/skyeyefast/taiwan/DiscardAnalysis;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnalysis ()Ltop/skyeyefast/taiwan/HandAnalysis;
+	public final fun getKind ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class top/skyeyefast/taiwan/DrawOrigin : java/lang/Enum {
+	public static final field FLOWER_REPLACEMENT Ltop/skyeyefast/taiwan/DrawOrigin;
+	public static final field KONG_REPLACEMENT Ltop/skyeyefast/taiwan/DrawOrigin;
+	public static final field ORDINARY Ltop/skyeyefast/taiwan/DrawOrigin;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/DrawOrigin;
+	public static fun values ()[Ltop/skyeyefast/taiwan/DrawOrigin;
+}
+
+public final class top/skyeyefast/taiwan/EffectiveTile {
+	public fun <init> (II)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun copy (II)Ltop/skyeyefast/taiwan/EffectiveTile;
+	public static synthetic fun copy$default (Ltop/skyeyefast/taiwan/EffectiveTile;IIILjava/lang/Object;)Ltop/skyeyefast/taiwan/EffectiveTile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKind ()I
+	public final fun getRemaining ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class top/skyeyefast/taiwan/Flower : java/lang/Enum {
+	public static final field AUTUMN Ltop/skyeyefast/taiwan/Flower;
+	public static final field BAMBOO Ltop/skyeyefast/taiwan/Flower;
+	public static final field CHRYSANTHEMUM Ltop/skyeyefast/taiwan/Flower;
+	public static final field ORCHID Ltop/skyeyefast/taiwan/Flower;
+	public static final field PLUM Ltop/skyeyefast/taiwan/Flower;
+	public static final field SPRING Ltop/skyeyefast/taiwan/Flower;
+	public static final field SUMMER Ltop/skyeyefast/taiwan/Flower;
+	public static final field WINTER Ltop/skyeyefast/taiwan/Flower;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getFamily ()I
+	public final fun getNumber ()I
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/Flower;
+	public static fun values ()[Ltop/skyeyefast/taiwan/Flower;
+}
+
+public final class top/skyeyefast/taiwan/FlowerEvent : java/lang/Enum {
+	public static final field EIGHT_AFTER_INITIAL_REPLACEMENT Ltop/skyeyefast/taiwan/FlowerEvent;
+	public static final field EIGHT_AFTER_REPLACEMENT Ltop/skyeyefast/taiwan/FlowerEvent;
+	public static final field SEVEN_AFTER_INITIAL_REPLACEMENT Ltop/skyeyefast/taiwan/FlowerEvent;
+	public static final field SEVEN_AFTER_REPLACEMENT Ltop/skyeyefast/taiwan/FlowerEvent;
+	public static final field SEVEN_ON_OPPONENT_FLOWER Ltop/skyeyefast/taiwan/FlowerEvent;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/FlowerEvent;
+	public static fun values ()[Ltop/skyeyefast/taiwan/FlowerEvent;
+}
+
+public final class top/skyeyefast/taiwan/FlowerPolicy : java/lang/Enum {
+	public static final field NONE Ltop/skyeyefast/taiwan/FlowerPolicy;
+	public static final field SEAT_NUMBER Ltop/skyeyefast/taiwan/FlowerPolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/FlowerPolicy;
+	public static fun values ()[Ltop/skyeyefast/taiwan/FlowerPolicy;
+}
+
+public final class top/skyeyefast/taiwan/FlowerScore {
+	public fun <init> (Ltop/skyeyefast/taiwan/TaiAward;Ltop/skyeyefast/taiwan/TaiwanScore;II)V
+	public final fun getAward ()Ltop/skyeyefast/taiwan/TaiAward;
+	public final fun getHandScore ()Ltop/skyeyefast/taiwan/TaiwanScore;
+	public final fun getRawTai ()I
+	public final fun getTai ()I
+}
+
+public final class top/skyeyefast/taiwan/FlowerSetPolicy : java/lang/Enum {
+	public static final field ADD_SEAT_FLOWER Ltop/skyeyefast/taiwan/FlowerSetPolicy;
+	public static final field REPLACE_SEAT_FLOWER Ltop/skyeyefast/taiwan/FlowerSetPolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/FlowerSetPolicy;
+	public static fun values ()[Ltop/skyeyefast/taiwan/FlowerSetPolicy;
+}
+
+public final class top/skyeyefast/taiwan/Group {
+	public fun <init> (Ltop/skyeyefast/taiwan/GroupType;I)V
+	public final fun component1 ()Ltop/skyeyefast/taiwan/GroupType;
+	public final fun component2 ()I
+	public final fun copy (Ltop/skyeyefast/taiwan/GroupType;I)Ltop/skyeyefast/taiwan/Group;
+	public static synthetic fun copy$default (Ltop/skyeyefast/taiwan/Group;Ltop/skyeyefast/taiwan/GroupType;IILjava/lang/Object;)Ltop/skyeyefast/taiwan/Group;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKind ()I
+	public final fun getTiles ()Ljava/util/List;
+	public final fun getType ()Ltop/skyeyefast/taiwan/GroupType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class top/skyeyefast/taiwan/GroupType : java/lang/Enum {
+	public static final field ADDED_KONG Ltop/skyeyefast/taiwan/GroupType;
+	public static final field CONCEALED_KONG Ltop/skyeyefast/taiwan/GroupType;
+	public static final field OPEN_KONG Ltop/skyeyefast/taiwan/GroupType;
+	public static final field SEQUENCE Ltop/skyeyefast/taiwan/GroupType;
+	public static final field TRIPLET Ltop/skyeyefast/taiwan/GroupType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/GroupType;
+	public static fun values ()[Ltop/skyeyefast/taiwan/GroupType;
+}
+
+public final class top/skyeyefast/taiwan/Hand {
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getConcealed ()Ljava/util/List;
+	public final fun getMelds ()Ljava/util/List;
+	public final fun getSize ()I
+}
+
+public final class top/skyeyefast/taiwan/HandAnalysis {
+	public fun <init> (ILjava/util/List;)V
+	public final fun getEffectiveTiles ()Ljava/util/List;
+	public final fun getRemaining ()I
+	public final fun getShanten ()I
+}
+
+public final class top/skyeyefast/taiwan/OpeningWin : java/lang/Enum {
+	public static final field EARTHLY Ltop/skyeyefast/taiwan/OpeningWin;
+	public static final field HEAVENLY Ltop/skyeyefast/taiwan/OpeningWin;
+	public static final field HUMAN Ltop/skyeyefast/taiwan/OpeningWin;
+	public static final field NONE Ltop/skyeyefast/taiwan/OpeningWin;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/OpeningWin;
+	public static fun values ()[Ltop/skyeyefast/taiwan/OpeningWin;
+}
+
+public final class top/skyeyefast/taiwan/Pattern : java/lang/Enum {
+	public static final field ALL_FROM_OTHERS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field ALL_HONORS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field ALL_TRIPLETS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field BIG_FOUR_WINDS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field BIG_THREE_DRAGONS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field CONCEALED Ltop/skyeyefast/taiwan/Pattern;
+	public static final field CONCEALED_SELF_DRAW Ltop/skyeyefast/taiwan/Pattern;
+	public static final field DECLARED_READY Ltop/skyeyefast/taiwan/Pattern;
+	public static final field EARTHLY_READY Ltop/skyeyefast/taiwan/Pattern;
+	public static final field EARTHLY_WIN Ltop/skyeyefast/taiwan/Pattern;
+	public static final field EIGHT_FLOWERS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field FIVE_CONCEALED_TRIPLETS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field FLOWER_SET Ltop/skyeyefast/taiwan/Pattern;
+	public static final field FOUR_CONCEALED_TRIPLETS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field FULL_FLUSH Ltop/skyeyefast/taiwan/Pattern;
+	public static final field GREEN_DRAGON Ltop/skyeyefast/taiwan/Pattern;
+	public static final field HALF_FLUSH Ltop/skyeyefast/taiwan/Pattern;
+	public static final field HALF_FROM_OTHERS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field HEAVENLY_READY Ltop/skyeyefast/taiwan/Pattern;
+	public static final field HEAVENLY_WIN Ltop/skyeyefast/taiwan/Pattern;
+	public static final field HUMAN_WIN Ltop/skyeyefast/taiwan/Pattern;
+	public static final field LAST_DISCARD Ltop/skyeyefast/taiwan/Pattern;
+	public static final field LAST_DRAW Ltop/skyeyefast/taiwan/Pattern;
+	public static final field PINFU Ltop/skyeyefast/taiwan/Pattern;
+	public static final field RED_DRAGON Ltop/skyeyefast/taiwan/Pattern;
+	public static final field REPLACEMENT_WIN Ltop/skyeyefast/taiwan/Pattern;
+	public static final field ROBBING_KONG Ltop/skyeyefast/taiwan/Pattern;
+	public static final field ROUND_WIND Ltop/skyeyefast/taiwan/Pattern;
+	public static final field SEAT_FLOWER Ltop/skyeyefast/taiwan/Pattern;
+	public static final field SEAT_WIND Ltop/skyeyefast/taiwan/Pattern;
+	public static final field SELF_DRAW Ltop/skyeyefast/taiwan/Pattern;
+	public static final field SEVEN_ROBS_ONE Ltop/skyeyefast/taiwan/Pattern;
+	public static final field SINGLE_WAIT Ltop/skyeyefast/taiwan/Pattern;
+	public static final field SMALL_FOUR_WINDS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field SMALL_THREE_DRAGONS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field THREE_CONCEALED_TRIPLETS Ltop/skyeyefast/taiwan/Pattern;
+	public static final field WHITE_DRAGON Ltop/skyeyefast/taiwan/Pattern;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/Pattern;
+	public static fun values ()[Ltop/skyeyefast/taiwan/Pattern;
+}
+
+public final class top/skyeyefast/taiwan/PinfuPolicy : java/lang/Enum {
+	public static final field DISCARD_SEQUENCES Ltop/skyeyefast/taiwan/PinfuPolicy;
+	public static final field MULTIPLE_WAIT_DISCARD_SEQUENCES Ltop/skyeyefast/taiwan/PinfuPolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/PinfuPolicy;
+	public static fun values ()[Ltop/skyeyefast/taiwan/PinfuPolicy;
+}
+
+public final class top/skyeyefast/taiwan/ReadyDeclaration : java/lang/Enum {
+	public static final field EARTHLY Ltop/skyeyefast/taiwan/ReadyDeclaration;
+	public static final field HEAVENLY Ltop/skyeyefast/taiwan/ReadyDeclaration;
+	public static final field NONE Ltop/skyeyefast/taiwan/ReadyDeclaration;
+	public static final field ORDINARY Ltop/skyeyefast/taiwan/ReadyDeclaration;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/ReadyDeclaration;
+	public static fun values ()[Ltop/skyeyefast/taiwan/ReadyDeclaration;
+}
+
+public final class top/skyeyefast/taiwan/ReplacementPolicy : java/lang/Enum {
+	public static final field KONG_ONLY Ltop/skyeyefast/taiwan/ReplacementPolicy;
+	public static final field KONG_OR_FLOWER Ltop/skyeyefast/taiwan/ReplacementPolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/ReplacementPolicy;
+	public static fun values ()[Ltop/skyeyefast/taiwan/ReplacementPolicy;
+}
+
+public final class top/skyeyefast/taiwan/ReplacementWin {
+	public fun <init> (Ltop/skyeyefast/taiwan/Hand;ILtop/skyeyefast/taiwan/WinContext;)V
+	public final fun getContext ()Ltop/skyeyefast/taiwan/WinContext;
+	public final fun getHand ()Ltop/skyeyefast/taiwan/Hand;
+	public final fun getWinningKind ()I
+}
+
+public final class top/skyeyefast/taiwan/RuleSource {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Ltop/skyeyefast/taiwan/RuleSource;
+	public static synthetic fun copy$default (Ltop/skyeyefast/taiwan/RuleSource;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltop/skyeyefast/taiwan/RuleSource;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClause ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class top/skyeyefast/taiwan/TaiAward {
+	public fun <init> (Ltop/skyeyefast/taiwan/Pattern;IILtop/skyeyefast/taiwan/RuleSource;)V
+	public final fun component1 ()Ltop/skyeyefast/taiwan/Pattern;
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun component4 ()Ltop/skyeyefast/taiwan/RuleSource;
+	public final fun copy (Ltop/skyeyefast/taiwan/Pattern;IILtop/skyeyefast/taiwan/RuleSource;)Ltop/skyeyefast/taiwan/TaiAward;
+	public static synthetic fun copy$default (Ltop/skyeyefast/taiwan/TaiAward;Ltop/skyeyefast/taiwan/Pattern;IILtop/skyeyefast/taiwan/RuleSource;ILjava/lang/Object;)Ltop/skyeyefast/taiwan/TaiAward;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPattern ()Ltop/skyeyefast/taiwan/Pattern;
+	public final fun getSource ()Ltop/skyeyefast/taiwan/RuleSource;
+	public final fun getTai ()I
+	public final fun getUnits ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class top/skyeyefast/taiwan/TaiwanMahjong {
+	public static final field INSTANCE Ltop/skyeyefast/taiwan/TaiwanMahjong;
+	public static final fun analyze (Ltop/skyeyefast/taiwan/Hand;)Ltop/skyeyefast/taiwan/HandAnalysis;
+	public static final fun analyze (Ltop/skyeyefast/taiwan/Hand;Ljava/util/List;)Ltop/skyeyefast/taiwan/HandAnalysis;
+	public static synthetic fun analyze$default (Ltop/skyeyefast/taiwan/Hand;Ljava/util/List;ILjava/lang/Object;)Ltop/skyeyefast/taiwan/HandAnalysis;
+	public static final fun discards (Ltop/skyeyefast/taiwan/Hand;)Ljava/util/List;
+	public static final fun discards (Ltop/skyeyefast/taiwan/Hand;Ljava/util/List;)Ljava/util/List;
+	public static synthetic fun discards$default (Ltop/skyeyefast/taiwan/Hand;Ljava/util/List;ILjava/lang/Object;)Ljava/util/List;
+	public static final fun shanten (Ltop/skyeyefast/taiwan/Hand;)I
+	public static final fun waitingTiles (Ltop/skyeyefast/taiwan/Hand;)Ljava/util/Set;
+	public static final fun winningShapes (Ltop/skyeyefast/taiwan/Hand;)Ljava/util/List;
+}
+
+public final class top/skyeyefast/taiwan/TaiwanProfiles {
+	public static final field INSTANCE Ltop/skyeyefast/taiwan/TaiwanProfiles;
+	public static final field POCKET_COMMON Ltop/skyeyefast/taiwan/TaiwanScoringProfile;
+	public static final field SOUTHERN_COMMON Ltop/skyeyefast/taiwan/TaiwanScoringProfile;
+}
+
+public final class top/skyeyefast/taiwan/TaiwanScore {
+	public fun <init> (Ltop/skyeyefast/taiwan/WinningShape;ILjava/util/List;II)V
+	public final fun getAwards ()Ljava/util/List;
+	public final fun getRawTai ()I
+	public final fun getShape ()Ltop/skyeyefast/taiwan/WinningShape;
+	public final fun getTai ()I
+	public final fun getWinningGroup ()I
+}
+
+public final class top/skyeyefast/taiwan/TaiwanScoring {
+	public static final field INSTANCE Ltop/skyeyefast/taiwan/TaiwanScoring;
+	public static final fun flowerWin (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;)Ltop/skyeyefast/taiwan/FlowerScore;
+	public static final fun flowerWin (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;Ltop/skyeyefast/taiwan/ReplacementWin;)Ltop/skyeyefast/taiwan/FlowerScore;
+	public static synthetic fun flowerWin$default (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;Ltop/skyeyefast/taiwan/ReplacementWin;ILjava/lang/Object;)Ltop/skyeyefast/taiwan/FlowerScore;
+	public static final fun score (Ltop/skyeyefast/taiwan/Hand;ILtop/skyeyefast/taiwan/WinContext;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;)Ltop/skyeyefast/taiwan/TaiwanScore;
+}
+
+public final class top/skyeyefast/taiwan/TaiwanScoringProfile {
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ltop/skyeyefast/taiwan/FlowerPolicy;Ltop/skyeyefast/taiwan/FlowerSetPolicy;Ltop/skyeyefast/taiwan/PinfuPolicy;Ltop/skyeyefast/taiwan/ReplacementPolicy;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ltop/skyeyefast/taiwan/FlowerPolicy;Ltop/skyeyefast/taiwan/FlowerSetPolicy;Ltop/skyeyefast/taiwan/PinfuPolicy;Ltop/skyeyefast/taiwan/ReplacementPolicy;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getExclusions ()Ljava/util/Map;
+	public final fun getFlowerSets ()Ltop/skyeyefast/taiwan/FlowerSetPolicy;
+	public final fun getFlowers ()Ltop/skyeyefast/taiwan/FlowerPolicy;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPinfu ()Ltop/skyeyefast/taiwan/PinfuPolicy;
+	public final fun getReplacements ()Ltop/skyeyefast/taiwan/ReplacementPolicy;
+	public final fun getSources ()Ljava/util/Map;
+	public final fun getTaiLimit ()Ljava/lang/Integer;
+	public final fun getValues ()Ljava/util/Map;
+}
+
+public final class top/skyeyefast/taiwan/WinContext {
+	public fun <init> (Ltop/skyeyefast/taiwan/WinMethod;IIILjava/util/Set;Ltop/skyeyefast/taiwan/DrawOrigin;ZLtop/skyeyefast/taiwan/OpeningWin;Ltop/skyeyefast/taiwan/ReadyDeclaration;)V
+	public synthetic fun <init> (Ltop/skyeyefast/taiwan/WinMethod;IIILjava/util/Set;Ltop/skyeyefast/taiwan/DrawOrigin;ZLtop/skyeyefast/taiwan/OpeningWin;Ltop/skyeyefast/taiwan/ReadyDeclaration;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDrawOrigin ()Ltop/skyeyefast/taiwan/DrawOrigin;
+	public final fun getFlowerNumber ()I
+	public final fun getFlowers ()Ljava/util/Set;
+	public final fun getLastTile ()Z
+	public final fun getMethod ()Ltop/skyeyefast/taiwan/WinMethod;
+	public final fun getOpening ()Ltop/skyeyefast/taiwan/OpeningWin;
+	public final fun getReady ()Ltop/skyeyefast/taiwan/ReadyDeclaration;
+	public final fun getRoundWind ()I
+	public final fun getSeatWind ()I
+}
+
+public final class top/skyeyefast/taiwan/WinMethod : java/lang/Enum {
+	public static final field DISCARD Ltop/skyeyefast/taiwan/WinMethod;
+	public static final field ROBBING_KONG Ltop/skyeyefast/taiwan/WinMethod;
+	public static final field SELF_DRAW Ltop/skyeyefast/taiwan/WinMethod;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ltop/skyeyefast/taiwan/WinMethod;
+	public static fun values ()[Ltop/skyeyefast/taiwan/WinMethod;
+}
+
+public final class top/skyeyefast/taiwan/WinningShape {
+	public fun <init> (ILjava/util/List;)V
+	public final fun getGroups ()Ljava/util/List;
+	public final fun getPair ()I
+}
+
