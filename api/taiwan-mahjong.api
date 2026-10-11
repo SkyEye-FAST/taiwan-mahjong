@@ -270,9 +270,13 @@ public final class top/skyeyefast/taiwan/TaiwanScore {
 
 public final class top/skyeyefast/taiwan/TaiwanScoring {
 	public static final field INSTANCE Ltop/skyeyefast/taiwan/TaiwanScoring;
+	public static final fun candidates (Ltop/skyeyefast/taiwan/Hand;ILtop/skyeyefast/taiwan/WinContext;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;)Ljava/util/List;
 	public static final fun flowerWin (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;)Ltop/skyeyefast/taiwan/FlowerScore;
 	public static final fun flowerWin (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;Ltop/skyeyefast/taiwan/ReplacementWin;)Ltop/skyeyefast/taiwan/FlowerScore;
 	public static synthetic fun flowerWin$default (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;Ltop/skyeyefast/taiwan/ReplacementWin;ILjava/lang/Object;)Ltop/skyeyefast/taiwan/FlowerScore;
+	public static final fun flowerWinCandidates (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;)Ljava/util/List;
+	public static final fun flowerWinCandidates (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;Ltop/skyeyefast/taiwan/ReplacementWin;)Ljava/util/List;
+	public static synthetic fun flowerWinCandidates$default (Ljava/util/Set;Ltop/skyeyefast/taiwan/FlowerEvent;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;Ltop/skyeyefast/taiwan/ReplacementWin;ILjava/lang/Object;)Ljava/util/List;
 	public static final fun score (Ltop/skyeyefast/taiwan/Hand;ILtop/skyeyefast/taiwan/WinContext;Ltop/skyeyefast/taiwan/TaiwanScoringProfile;)Ltop/skyeyefast/taiwan/TaiwanScore;
 }
 

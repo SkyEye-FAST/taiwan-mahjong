@@ -19,9 +19,13 @@ public final class JavaConsumer {
         var pocket = TaiwanScoring.score(ready, 33, context, TaiwanProfiles.POCKET_COMMON);
         var southern = TaiwanScoring.score(ready, 33, context, TaiwanProfiles.SOUTHERN_COMMON);
         require(pocket != null && pocket.getTai() > 0 && !pocket.getAwards().isEmpty());
+        var candidates = TaiwanScoring.candidates(ready, 33, context, TaiwanProfiles.POCKET_COMMON);
+        require(!candidates.isEmpty() && candidates.stream().anyMatch(value -> value.getAwards().equals(pocket.getAwards())));
         require(southern != null && southern.getTai() <= 4 && TaiwanProfiles.SOUTHERN_COMMON.getFlowers() == FlowerPolicy.NONE);
         var flower = TaiwanScoring.flowerWin(EnumSet.allOf(Flower.class), FlowerEvent.EIGHT_AFTER_INITIAL_REPLACEMENT, TaiwanProfiles.POCKET_COMMON);
         require(flower != null && flower.getTai() == 8 && flower.getHandScore() == null);
+        require(TaiwanScoring.flowerWinCandidates(EnumSet.allOf(Flower.class), FlowerEvent.EIGHT_AFTER_INITIAL_REPLACEMENT,
+            TaiwanProfiles.POCKET_COMMON).get(0).getHandScore() == null);
         // Access Kotlin-generated public enum API: stdlib must arrive transitively from the POM.
         require(Pattern.getEntries().size() > 0);
         System.out.println("Java consumer PASS (JVM " + Runtime.version().feature() + ")");

@@ -12,7 +12,7 @@ repositories {
     mavenCentral { content { excludeModule("top.skyeyefast", "taiwan-mahjong") } }
 }
 
-dependencies { implementation("top.skyeyefast:taiwan-mahjong:0.1.0") }
+dependencies { implementation("top.skyeyefast:taiwan-mahjong:0.2.0") }
 tasks.withType<JavaCompile>().configureEach { options.release.set(17) }
 application { mainClass.set("example.JavaConsumer") }
 

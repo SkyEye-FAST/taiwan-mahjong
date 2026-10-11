@@ -10,7 +10,7 @@ repositories {
     mavenCentral { content { excludeModule("top.skyeyefast", "taiwan-mahjong") } }
 }
 
-dependencies { implementation("top.skyeyefast:taiwan-mahjong:0.1.0") }
+dependencies { implementation("top.skyeyefast:taiwan-mahjong:0.2.0") }
 kotlin.compilerOptions {
     jvmTarget.set(JvmTarget.JVM_17)
     freeCompilerArgs.add("-Xjdk-release=17")

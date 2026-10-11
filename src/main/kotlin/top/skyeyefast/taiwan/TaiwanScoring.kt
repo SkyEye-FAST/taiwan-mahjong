@@ -4,11 +4,21 @@ object TaiwanScoring {
     /** Enumerates both decompositions and the winning tile's placement, taking maximum payable tai. */
     @JvmStatic
     fun score(hand: Hand, winningKind: Int, context: WinContext, profile: TaiwanScoringProfile): TaiwanScore? =
-        scoreRegular(hand, winningKind, context, profile, false)
+        candidates(hand, winningKind, context, profile).maxWithOrNull(compareBy<TaiwanScore> { it.tai }.thenBy { it.rawTai })
 
-    private fun scoreRegular(
+    /**
+     * Every ordinary decomposition and winning placement, including zero-tai candidates.
+     * Awards already reflect [profile]'s values and simultaneous exclusions; [TaiwanScore.rawTai]
+     * precedes its cap. Hosts adding awards must compare these candidates after their own scoring.
+     * An empty list means no ordinary winning shape. The returned list is unmodifiable.
+     */
+    @JvmStatic
+    fun candidates(hand: Hand, winningKind: Int, context: WinContext, profile: TaiwanScoringProfile): List<TaiwanScore> =
+        candidates(hand, winningKind, context, profile, false)
+
+    private fun candidates(
         hand: Hand, winningKind: Int, context: WinContext, profile: TaiwanScoringProfile, flowerWin: Boolean,
-    ): TaiwanScore? {
+    ): List<TaiwanScore> {
         hand.requireSize(16)
         require(profile.flowers != FlowerPolicy.NONE || context.flowers.isEmpty())
         require(context.opening == OpeningWin.NONE || hand.melds.isEmpty())
@@ -20,7 +30,7 @@ object TaiwanScoring {
             if (shape.pair == winningKind) positions.add(0, -1)
             for (position in positions) candidates += evaluate(hand, shape, position, context, profile, waits.size, flowerWin)
         }
-        return candidates.maxWithOrNull(compareBy<TaiwanScore> { it.tai }.thenBy { it.rawTai })
+        return java.util.List.copyOf(candidates)
     }
 
     private fun evaluate(
@@ -100,7 +110,20 @@ object TaiwanScoring {
     @JvmOverloads
     fun flowerWin(
         flowers: Set<Flower>, event: FlowerEvent, profile: TaiwanScoringProfile, replacement: ReplacementWin? = null,
-    ): FlowerScore? {
+    ): FlowerScore? = flowerWinCandidates(flowers, event, profile, replacement)
+        .maxWithOrNull(compareBy<FlowerScore> { it.tai }.thenBy { it.rawTai })
+
+    /**
+     * Flower award paired with every ordinary replacement-win candidate, with ordinary flower
+     * bonuses suppressed. A valid flower victory without an ordinary win has one candidate with
+     * a null hand score; a disabled flower award has none. Event validation is identical to [flowerWin].
+     * Hosts must retain separate flower/hand components when extending scoring or routing payments.
+     */
+    @JvmStatic
+    @JvmOverloads
+    fun flowerWinCandidates(
+        flowers: Set<Flower>, event: FlowerEvent, profile: TaiwanScoringProfile, replacement: ReplacementWin? = null,
+    ): List<FlowerScore> {
         require(profile.flowers != FlowerPolicy.NONE) { "This profile has no flowers" }
         val pattern = if (event == FlowerEvent.EIGHT_AFTER_REPLACEMENT || event == FlowerEvent.EIGHT_AFTER_INITIAL_REPLACEMENT) Pattern.EIGHT_FLOWERS else Pattern.SEVEN_ROBS_ONE
         require(flowers.size == if (pattern == Pattern.EIGHT_FLOWERS) 8 else 7)
@@ -108,10 +131,12 @@ object TaiwanScoring {
         require((replacement != null) == needsReplacementHand)
         if (replacement != null) require(replacement.context.flowers == flowers)
         val value = profile.values.getValue(pattern)
-        if (value == 0) return null
-        val handScore = replacement?.let { scoreRegular(it.hand, it.winningKind, it.context, profile, true) }
-        val rawTai = value + (handScore?.rawTai ?: 0)
-        return FlowerScore(TaiAward(pattern, 1, value, profile.sources.getValue(pattern)), handScore,
-            rawTai, minOf(rawTai, profile.taiLimit ?: Int.MAX_VALUE))
+        if (value == 0) return emptyList()
+        val hands = replacement?.let { candidates(it.hand, it.winningKind, it.context, profile, true) }.orEmpty()
+        val award = TaiAward(pattern, 1, value, profile.sources.getValue(pattern))
+        return java.util.List.copyOf((if (hands.isEmpty()) listOf(null) else hands).map { handScore ->
+            val rawTai = value + (handScore?.rawTai ?: 0)
+            FlowerScore(award, handScore, rawTai, minOf(rawTai, profile.taiLimit ?: Int.MAX_VALUE))
+        })
     }
 }

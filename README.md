@@ -5,7 +5,7 @@ and tai scoring. It contains no Minecraft types, match state machine, networking
 persistence, UI, dealer progression or payment execution.
 
 Source: [SkyEye-FAST/taiwan-mahjong](https://github.com/SkyEye-FAST/taiwan-mahjong).
-Maven coordinate: `top.skyeyefast:taiwan-mahjong:0.1.0`.
+Maven coordinate: `top.skyeyefast:taiwan-mahjong:0.2.0`.
 MChjong can pin this repository as a Git submodule for composite source development;
 the published library resolves independently from its Maven coordinate.
 This repository builds independently:
@@ -24,7 +24,7 @@ for four-meld remainders, not a scoring source or production dependency.
 
 ```kotlin
 repositories { mavenCentral() }
-dependencies { implementation("top.skyeyefast:taiwan-mahjong:0.1.0") }
+dependencies { implementation("top.skyeyefast:taiwan-mahjong:0.2.0") }
 ```
 
 The public API is the Kotlin-public declarations in `top.skyeyefast.taiwan`,
@@ -56,6 +56,12 @@ Sources and generated Dokka HTML ship in standard `sources` and `javadoc` JARs.
   and `TaiwanScoringProfile`; null means no ordinary winning shape. Scoring
   enumerates every decomposition and winning placement, maximizing capped tai,
   then raw tai. A discard completing a triplet does not make that triplet concealed.
+* `TaiwanScoring.candidates`: the same scoring inputs, returning every decomposition
+  and winning placement in an unmodifiable list, including zero-tai winning shapes.
+  An empty list means no ordinary win. Each candidate already includes the profile's
+  values, exclusions and cap; `rawTai` retains its uncapped subtotal. A host adding
+  awards can evaluate each candidate before selecting its own maximum and applying
+  its total cap, without copying the built-in detectors.
 * `flowerWin`: eight flowers or seven-versus-one, without requiring an ordinary
   winning shape. Replacement-triggered events require a `ReplacementWin` with
   validated 16+1 tile input. An opponent's eighth flower requires no replacement.
@@ -65,6 +71,11 @@ Sources and generated Dokka HTML ship in standard `sources` and `javadoc` JARs.
   their payers can differ. `rawTai` sums raw components and `tai` caps that sum
   once; this is not an allocation between payers. The host certifies the event
   and external flower owner.
+* `flowerWinCandidates`: the same validated flower event, paired with every ordinary
+  replacement-hand interpretation, with ordinary flower bonuses suppressed. A flower
+  victory without an ordinary win returns one candidate with a null hand score;
+  a disabled flower award returns an empty list. Flower and ordinary awards stay
+  separate so the host can extend scoring while preserving their different payers.
 
 Inputs are defensively copied; retained collections and result collections are
 unmodifiable. Objects contain immutable values and no global mutable caches.

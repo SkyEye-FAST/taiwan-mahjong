@@ -15,8 +15,12 @@ fun main() {
     val pocket = checkNotNull(TaiwanScoring.score(ready, 33, context, TaiwanProfiles.POCKET_COMMON))
     val southern = checkNotNull(TaiwanScoring.score(ready, 33, context, TaiwanProfiles.SOUTHERN_COMMON))
     check(pocket.tai > 0 && pocket.awards.isNotEmpty())
+    val candidates = TaiwanScoring.candidates(ready, 33, context, TaiwanProfiles.POCKET_COMMON)
+    check(candidates.any { it.awards == pocket.awards })
     check(southern.tai <= 4 && TaiwanProfiles.SOUTHERN_COMMON.flowers == FlowerPolicy.NONE)
     val flower = checkNotNull(TaiwanScoring.flowerWin(Flower.entries.toSet(), FlowerEvent.EIGHT_AFTER_INITIAL_REPLACEMENT, TaiwanProfiles.POCKET_COMMON))
     check(flower.tai == 8 && flower.handScore == null)
+    check(TaiwanScoring.flowerWinCandidates(Flower.entries.toSet(), FlowerEvent.EIGHT_AFTER_INITIAL_REPLACEMENT,
+        TaiwanProfiles.POCKET_COMMON).single().handScore == null)
     println("Kotlin consumer PASS (JVM ${Runtime.version().feature()})")
 }
